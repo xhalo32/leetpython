@@ -4,8 +4,8 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 import calendar, os
-from fractals import koch, tree
-from random import random
+from fractals import koch, kochsnowflake, tree, barnsley
+from random import random, randrange
 from math import pi
 
 def gs(val):
@@ -20,7 +20,7 @@ def drawtext(draw, pos, text, color, fontstring="/usr/share/fonts/TTF/DejaVuSans
 
 # 60cm * 106cm
 SIZE=(1920,1080)
-SIZE=(3840,2160) 
+SIZE=(3840,2160)
 SIZE=(7680,4320)
 
 WIDTH,HEIGHT=SIZE
@@ -32,11 +32,8 @@ def op(a,b):
 _monthrange=[8,5]
 monthrange=[[_monthrange[0],_monthrange[1]] if _monthrange[0]<=_monthrange[1] else
 			[_monthrange[0],_monthrange[1]+12*(1+_monthrange[0]//12)]][0]
-print(monthrange)
 
 monthranges=[ op(i,12) for i in range(monthrange[0],monthrange[1]+1) ]
-
-print(monthranges)
 
 weekdays=('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday')
 weekdays_abrs=('Mon','Tue','Wed','Thu','Fri','Sat','Sun')
@@ -49,6 +46,7 @@ numberpad=WIDTH/300.0
 # remove old images
 os.system("rm /home/potato/Desktop/calendar/*")
 year=2017
+lastsel=-1 # no duplicate fractals
 
 for month in monthranges:
 	if month==1: year+=1
@@ -71,11 +69,39 @@ for month in monthranges:
 				(j+1-0.5)*padding[1]],outline=gs(100))
 
 	# draw fractals
-	if random() > 0.5:
-		koch(d,7+int(3*random()),[0,HEIGHT-HEIGHT/8.0],WIDTH,s=int(random()*30)+110,color=gs(180))
-	else:
-		tree(d,10,0.5+0.3*random(),1.6*HEIGHT,[WIDTH//2,HEIGHT-padding[1]],trunk_ratio=0.1+0.1*random(),sizefactor=0.775+0.05*random(),
+	NUMFRACTALS=4
+	sel=randrange(NUMFRACTALS)
+	while sel==lastsel or (lastsel==1 and sel==0) or (lastsel==0 and sel==1):
+		sel+=1
+		sel%=NUMFRACTALS
+	print("Fractal type: "+str(sel))
+
+	if sel==0:
+		koch(d,10,[0,HEIGHT-HEIGHT/8.0],WIDTH,s=int(random()*30)+110,color=gs(180))
+	elif sel==1:
+		kochsnowflake(d,10,[WIDTH/2.0,HEIGHT/2.0],HEIGHT/3.0,s=int(random()*30)+110,color=gs(180))
+	elif sel==2:
+		tree(d,13,0.5+0.3*random(),1.6*HEIGHT,[WIDTH//2,HEIGHT-padding[1]],trunk_ratio=0.1+0.1*random(),sizefactor=0.775+0.05*random(),
 			balance=-0.5+random(),color=gs(180))
+	elif sel==3:
+		r=lambda: random()
+		s=lambda: randrange(2)
+		s1=s()      # 1 0
+		s1c=-s1+1   # 0 1
+		s1b=2*s1-1  # 1 -1
+		s1cb=2*s1c-1# -1 1
+		r1=r()*0.5+0.5
+		ranges=[0,1,86,93,100]
+		genes=[
+			[(0,0,0),                       (0,0.16,0)],
+			[(0.8+0.1*r(),s1b*0.05*r1,0),   (-(0.03+0.04*r())*s1b,0.82,1.6)],
+			[(0.1+0.1*r(),-0.17-.06*r(),0), (s1b*(0.2+.06*r()+s1c*0.2),0.18*s1+.08*r(),1+1*r())],
+			[(-0.1+0.1*r(),+0.17+.06*r(),0),(s1b*(0.2+.06*r()+s1c*0.2),0.18*s1+.08*r(),1+1*r())],
+		]
+		barnsley(d,2*10**6,WIDTH,HEIGHT,ranges,genes,r=0,color=gs(180))
+
+	lastsel=sel
+
 
 	for i in range(days):
 		# draw the boxes
@@ -102,8 +128,8 @@ for month in monthranges:
 	drawtext(d,[WIDTH/2,padding[1]/2],months[month-1],"black",
 fontstring="/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",fontsize=48*WIDTH/1920.0,center=True)
 
-	print(months[month-1],year)
-	img.save("calendar/"+str(year)+"_"+str(month).zfill(2)+".png")
+	print(months[month-1],year,"Fractal type: "+str(sel))
+	img.save("/home/potato/Desktop/calendar/"+str(year)+"_"+str(month).zfill(2)+".png")
 
 
 os.system("xdotool search --name calendar/ key r")
