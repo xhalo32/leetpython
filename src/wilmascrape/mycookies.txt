@@ -1,0 +1,2 @@
+#LWP-Cookies-2.0
+Set-Cookie3: NID="111=ejkMVYqqRoJ-zdmtB00SdO3wVT_Ap2TlwPyNPoTB0DYAQhKYUFkUyRvNdQOl7DsFjsmk_Ja4Xc_QRkweGtm0cltZKvwtK3t6UX9rYuH48kilTKu3cRxjIHmUnOQM7ws3"; path="/"; domain=".google.fi"; path_spec; domain_dot; expires="2018-03-13 10:54:29Z"; HttpOnly=None; version=0

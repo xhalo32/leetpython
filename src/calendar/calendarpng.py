@@ -44,7 +44,7 @@ blockpadding=(WIDTH/120.0, HEIGHT/60.0)
 numberpad=WIDTH/300.0
 
 # remove old images
-os.system("rm /home/potato/Desktop/calendar/*")
+#os.system("rm /home/potato/Desktop/calendar/*")
 year=2017
 lastsel=-1 # no duplicate fractals
 
@@ -129,7 +129,7 @@ for month in monthranges:
 fontstring="/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",fontsize=48*WIDTH/1920.0,center=True)
 
 	print(months[month-1],year,"Fractal type: "+str(sel))
-	img.save("/home/potato/Desktop/calendar/"+str(year)+"_"+str(month).zfill(2)+".png")
+	img.save(str(year)+"_"+str(month).zfill(2)+".png")
 
 
-os.system("xdotool search --name calendar/ key r")
+#os.system("xdotool search --name calendar/ key r")
