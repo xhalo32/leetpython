@@ -3,6 +3,7 @@
 '''
 This program hacks the game
 '''
+# Change the coordanates according to your need
 box=[
     [390,230],
     [1208,411],
