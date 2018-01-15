@@ -1,0 +1,36 @@
+#!/usr/bin/python
+# coding:utf-8
+
+# difficulty 0 - 10
+amerikat = {
+	'Grönlanti' : { 'capital': 'Qaanaaq', 'difficulty': 1 },
+	'Kanada' : { 'capital': 'Ottawa', 'difficulty': 0.5 },
+	'Yhdysvallat' : { 'capital': 'Washington D.C.', 'difficulty': 0.5 },
+	'Meksiko' : { 'capital': 'México', 'difficulty': 1 },
+	'Bahama' : { 'capital': 'Nassau', 'difficulty': 1 },
+	'Kuuba' : { 'capital': 'Havanna', 'difficulty': 1 },
+	'Haiti' : { 'capital': 'Port-au-Prince', 'difficulty': 1 },
+	'Dominikaanien tasavalta' : { 'capital': 'Santo Domingo', 'difficulty': 1 },
+	'Puerto Rico' : { 'capital': 'San Juan', 'difficulty': 1 },
+	'Jamaika' : { 'capital': 'Kingston', 'difficulty': 1 },
+	'Belize' : { 'capital': 'Belmopan', 'difficulty': 1 },
+	'Guatemala' : { 'capital': 'Guatemala', 'difficulty': 1 },
+	'Honduras' : { 'capital': 'Tegucigalpa', 'difficulty': 1 },
+	'El Salvador' : { 'capital': 'San Salvador', 'difficulty': 1 },
+	'Nicaragua' : { 'capital': 'Managua', 'difficulty': 1 },
+	'Costa Rica' : { 'capital': 'San José', 'difficulty': 1 },
+	'Panama' : { 'capital': 'Panama', 'difficulty': 1 },
+	'Kolumbia' : { 'capital': 'Bogotá', 'difficulty': 1 },
+	'Venezuela' : { 'capital': 'Caracas', 'difficulty': 1 },
+	'Guyana' : { 'capital': 'Georgetown', 'difficulty': 1 },
+	'Surinam' : { 'capital': 'Paramaribo', 'difficulty': 1 },
+	'Ranskan Guayana' : { 'capital': 'Cayenne', 'difficulty': 1 },
+	'Ecuador' : { 'capital': 'Quito', 'difficulty': 1 },
+	'Peru' : { 'capital': 'Lima', 'difficulty': 1 },
+	'Brasilia' : { 'capital': 'Brasília', 'difficulty': 1 },
+	'Bolivia' : { 'capital': 'La Paz', 'difficulty': 1 },
+	'Paraguay' : { 'capital': 'Asunción', 'difficulty': 1 },
+	'Uruguay' : { 'capital': 'Montevideo', 'difficulty': 1 },
+	'Chile' : { 'capital': 'Santiago', 'difficulty': 1 },
+	'Argentiina' : { 'capital': 'Buenos Aires', 'difficulty': 1 },
+}
