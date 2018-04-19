@@ -1,0 +1,85 @@
+#!/usr/bin/python
+
+def shuff(d):
+	from random import random
+	l=[]
+	lf=list(d.items())
+	for a in d:
+		while 1:
+			i=int(len(lf)*random())%len(lf)
+			if len(l)==len(lf): break
+			if lf[i] in l: continue
+			l.append(lf[i])
+	return l
+
+sanat = {
+        'elokuussa': 'im August',
+        'viime aikoina' : 'in der letzten Zeit',
+        'vähemmän' : 'weniger',
+        'huonommin' : 'schlechter',
+        'ahdistaa' : 'bedrücken',
+        'melkein kahden viikon ajan' : 'fast zwei Wochen lang',
+        'kuppi' : 'die Tasse',
+        'nauttia' : 'genießen',
+        'soida' : 'klingeln',
+        'uudelleen' : 'erneut',
+        'mennä pois' : 'weg/gehen',
+        'ovi' : 'die Tür',
+        'avata' : 'öffnen',
+        'yhä edelleen' : 'immer noch',
+        'bilettämässä' : 'am Feiern',
+        'peruste' : 'der Grund',
+        'tosi siisti' : 'echt krass',
+        'nukkua tarpeeksi' : 'aus/schlafen',
+        'jotenkin' : 'irgendwie',
+        'tajuta' : 'checken',
+        'nukkua' : 'pennen',
+        'vierashuone' : 'das Gästezimmer',
+        'muutenkin' : 'sowieso',
+        'kauniimpi' : 'schöner',
+        'asia ei kuulu minulle' : 'das geht mich nichts an',
+        'kuulua' : 'an/gehen',
+        'miellyttää' : 'gefallen',
+        'ei kaikkien heiniä' : 'nicht jedermanns Sache',
+        'asia' : 'die Sache',
+        'äijä' : 'Alter',
+        'lämmittelybändi' : 'die Vorgruppe',
+        'menestyksekäs' : 'erfolgreich',
+        'nahkatakki' : 'die Lederjacke',
+        'tuoda takaisin' : 'zurück/bringen',
+        'jättää jäähyväiset' : 'sich verabschieden',
+        'pian' : 'bald',
+        'pois' : 'fort',
+        'muutama' : 'ein paar',
+        'pitää konsertti' : 'ein Konzert geben',
+        'klubi' : 'der Club',
+        'suosittu' : 'populär',
+        'siitä' : 'davon',
+        'keskenään' : 'miteinander',
+        'kahden kesken' : 'unter vier Augen',
+        'pitää' : 'sollen',
+        'pidempi' : 'länger',
+        'vaihto-oppilas' : 'die Austauschschülerin',
+        'tätä nykyä' : 'mittleweile',
+        'koulun alku' : 'der Schulbeginn',
+        'tehdä hyvää' : 'gut/tun',
+        'luontoloma' : 'der Natururlaub',
+        'Pohjola' : 'die Norden',
+        'korkea' : 'hoch',
+        'kuulostaa' : 'sich an/hören',
+        'kalliimpi' : 'teurer',
+        'luottamuksellinen' : 'vertraulich',
+        'tietysti, varmasti' : 'sicher',
+        'kiertue' : 'die Tour',
+        'osin' : 'teils',
+        'etäsuhde' : 'die Fernbeziehung',
+        'vastarakastunut' : 'frisch verliebt',
+        'tuore' : 'frisch',
+        'yö' : 'die Nacht',
+        'valoisa, vaalea' : 'hell',
+        'pimeä, tumma' : 'dunkel',
+        'riippua' : 'ab/hängen',
+        'soittaa' : 'an/rufen',
+        'jäädä, viipyä, pysyä' : 'bleiben',
+        'saa nähdä' : 'Mal sehen',
+}

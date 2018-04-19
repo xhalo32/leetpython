@@ -45,14 +45,15 @@ def main():
 		muoto=['maat','päät']['mp'.index(input("{x0CF}Maat vai pääkaupungit [m/p]{END}? ".format(**colorfmt)))]
 		for maa,pää in maat[:maksimi]:
 			if muoto=='päät':
-				arvaus=input("{xF0F}Mikä on {} pääkaupunki{END}? ".format(maa,**colorfmt))
+				arvaus=input("{xA4F}Mikä on {} pääkaupunki{END}? ".format(maa,**colorfmt))
 				if arvaus==pää:
 					print("{x0F0}OIKEIN{END}".format(**colorfmt))
 					pisteet+=1
-				else: print("{xF00}VÄÄRIN{END} oikea oli {}".format(pää,**colorfmt))
+				else:
+					print("{xF00}VÄÄRIN{END} oikea oli {}".format(pää,**colorfmt))
 
 			if muoto=='maat':
-				arvaus=input("{xF0F}Minkä maan pääkaupunki on {}{END}? ".format(pää,**colorfmt))
+				arvaus=input("{xA4F}Minkä maan pääkaupunki on {}{END}? ".format(pää,**colorfmt))
 				if arvaus==maa:
 					print("{x0F0}OIKEIN{END}".format(**colorfmt))
 					pisteet+=1

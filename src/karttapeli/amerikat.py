@@ -3,14 +3,14 @@
 
 # difficulty 0 - 10
 amerikat = {
-	'Grönlanti' : { 'capital': 'Qaanaaq', 'difficulty': 1 },
+	'Grönlanti' : { 'capital': 'Nuuk', 'difficulty': 1 },
 	'Kanada' : { 'capital': 'Ottawa', 'difficulty': 0.5 },
 	'Yhdysvallat' : { 'capital': 'Washington D.C.', 'difficulty': 0.5 },
 	'Meksiko' : { 'capital': 'México', 'difficulty': 1 },
 	'Bahama' : { 'capital': 'Nassau', 'difficulty': 1 },
 	'Kuuba' : { 'capital': 'Havanna', 'difficulty': 1 },
 	'Haiti' : { 'capital': 'Port-au-Prince', 'difficulty': 1 },
-	'Dominikaanien tasavalta' : { 'capital': 'Santo Domingo', 'difficulty': 1 },
+	'Dominikaaninen tasavalta' : { 'capital': 'Santo Domingo', 'difficulty': 1 },
 	'Puerto Rico' : { 'capital': 'San Juan', 'difficulty': 1 },
 	'Jamaika' : { 'capital': 'Kingston', 'difficulty': 1 },
 	'Belize' : { 'capital': 'Belmopan', 'difficulty': 1 },
