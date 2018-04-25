@@ -1,6 +1,7 @@
 # coding: utf-8
 import math
 from time import sleep
+import sys
 
 def rgb2ansi(r,g,b):
     return 16+36*round(-0.5+6.*r/256.)+6*round(-0.5+6.*g/256.)+round(-0.5+6.*b/256.)
@@ -33,6 +34,40 @@ def printcolor(text,inc=10,phase=0,invert=False):
         s+= "\u001b[7m"*invert+"\u001b[38;5;%dm%s"%(a,text[d])
     print(s)
 
-for i in range(360*10):
-    printcolor("MOIMOIMOI AAPO!!!!",10,i)
-    sleep(0.01)
+class Cat:
+    """
+    Arguments: frequency (letters per color cycle, negative cycles the other way)
+    """
+    linecount = 0
+    def __init__(self, frequency=36, phase=0, saturation=1., value=1.):
+        self.frequency=frequency
+        self.saturation=saturation
+        self.value=value
+        self.phase=phase
+
+    def print(self, s, nl=True):
+        f = ""
+        special = False
+        spc = ''
+        for c in s:
+            # Test for ansi formatting characters
+            if c == '\033':
+                special = True
+            elif special and c == 'm':
+                special = False
+                spc += c
+                f += spc
+                continue
+            if special:
+                spc += c
+                continue
+
+            f += "\033[38;5;{}m{}".format(rgb2ansi(*hsv2rgb(
+                self.phase,self.saturation,self.value)),c)
+            self.phase += 360/self.frequency
+        # Shift phase for new line
+        self.linecount += 1
+        self.phase = self.linecount*360/self.frequency
+        f += "\033[0m"
+        if nl: print(f)
+        else: sys.stdout.write(f)

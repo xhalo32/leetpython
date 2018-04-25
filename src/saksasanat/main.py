@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 
-import kurssi4kpl1
-sanat = kurssi4kpl1.sanat
-shuff = kurssi4kpl1.shuff
+import kurssi4kpl2 as testi
+sanat = testi.sanat
+shuff = testi.shuff
+
+import lolcat
 
 class bcolors:
     HEADER = '\033[95m'
@@ -13,31 +15,37 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    INVERTED = '\033[7m'
 
 def ins(string, before, after):
     return ''.join([before + x + after for x in string])
 
-def main():
-	while 1:
-		kieli = input('Millä kielellä haluat vastata? ')
-		assert kieli in ['saksa','suomi'], 'saksa|suomi'
-		
-		lista = shuff(sanat)
-		for i in range(len(lista)):
-			if kieli == 'saksa':
-				k,v = lista[i]
-				vastaus = input('Mikä on {} saksaksi? '.format(ins(k,bcolors.BOLD,bcolors.ENDC)))
-			elif kieli == 'suomi':
-				v,k = lista[i]
-				vastaus = input('Mikä on {} suomeksi? '.format(ins(k,bcolors.BOLD,bcolors.ENDC)))
+lcat = lolcat.Cat(saturation=0.7)
 
-			if vastaus == v:
-				print('OKEIN')
-			else:
-				print('VÄÄRIN oikea on {}'.format(v))
+def main():
+    while 1:
+        lcat.print('Millä kielellä haluat vastata? ')
+        kieli = input()
+        assert kieli in ['saksa','suomi'], 'saksa|suomi'
+
+        lista = shuff(sanat)
+        for i in range(len(lista)):
+            if kieli == 'saksa':
+                k,v = lista[i]
+                lcat.print('Mikä on {}{}{} saksaksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
+                vastaus = input()
+            elif kieli == 'suomi':
+                v,k = lista[i]
+                lcat.print('Mikä on {}{}{} suomeksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
+                vastaus = input()
+
+            if vastaus == v:
+                lcat.print('{}OKEIN{}'.format(bcolors.INVERTED,bcolors.ENDC))
+            else:
+                lcat.print('{}VÄÄRIN{} oikea on {}'.format(bcolors.INVERTED,bcolors.ENDC,v))
 
 if __name__=='__main__': 
-	try:
-		main()
-	except KeyboardInterrupt:
-		print()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print()
