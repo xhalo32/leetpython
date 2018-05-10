@@ -1,10 +1,13 @@
 #!/usr/bin/bash
 
-import kurssi4kpl2 as testi
-sanat = testi.sanat
-shuff = testi.shuff
+import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4
+shuff = kurssi4kpl2.shuff
 
-import lolcat
+sanat = {**kurssi4kpl2.sanat,
+        **kurssi4kpl3.sanat,
+        **kurssi4kpl4.sanat}
+
+import lolcat, learning
 
 class bcolors:
     HEADER = '\033[95m'
@@ -29,14 +32,15 @@ def main():
         assert kieli in ['saksa','suomi'], 'saksa|suomi'
 
         lista = shuff(sanat)
+        llen = len(lista)
         for i in range(len(lista)):
             if kieli == 'saksa':
                 k,v = lista[i]
-                lcat.print('Mikä on {}{}{} saksaksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
+                lcat.print(f'{i}/{llen} '+'Mikä on {}{}{} saksaksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
                 vastaus = input()
             elif kieli == 'suomi':
                 v,k = lista[i]
-                lcat.print('Mikä on {}{}{} suomeksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
+                lcat.print(f'{i}/{llen} '+'Mikä on {}{}{} suomeksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
                 vastaus = input()
 
             if vastaus == v:
