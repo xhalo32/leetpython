@@ -31,9 +31,16 @@ def main():
         kieli = input()
         assert kieli in ['saksa','suomi'], 'saksa|suomi'
 
-        lista = shuff(sanat)
+        # lista = shuff(sanat)
+        lcat.print(f'Montako sanaa? (max {len(list(sanat))}) ',0)
+        n = int(input())
+        lcat.print(f'Toistoja? [k/e] ',0)
+        t = {"k": 1, "e": 0}[input()]
+
+        lista = learning.shuff(sanat,n,t)
         llen = len(lista)
         for i in range(len(lista)):
+            word = lista[i][0]
             if kieli == 'saksa':
                 k,v = lista[i]
                 lcat.print(f'{i}/{llen} '+'Mikä on {}{}{} saksaksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
@@ -43,10 +50,13 @@ def main():
                 lcat.print(f'{i}/{llen} '+'Mikä on {}{}{} suomeksi? '.format(bcolors.UNDERLINE,k,bcolors.ENDC),0)
                 vastaus = input()
 
-            if vastaus == v:
+            correct = (vastaus == v)
+            if correct:
                 lcat.print('{}OKEIN{}'.format(bcolors.INVERTED,bcolors.ENDC))
             else:
                 lcat.print('{}VÄÄRIN{} oikea on {}'.format(bcolors.INVERTED,bcolors.ENDC,v))
+            print(word, correct)
+            learning.saveword(word, correct, kieli)
 
 if __name__=='__main__': 
     try:
