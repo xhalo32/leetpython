@@ -8,6 +8,7 @@ sanat = {**kurssi4kpl2.sanat,
         **kurssi4kpl4.sanat}
 
 import lolcat, learning
+learning.fillempty(sanat)
 
 class bcolors:
     HEADER = '\033[95m'
@@ -55,7 +56,6 @@ def main():
                 lcat.print('{}OKEIN{}'.format(bcolors.INVERTED,bcolors.ENDC))
             else:
                 lcat.print('{}VÄÄRIN{} oikea on {}'.format(bcolors.INVERTED,bcolors.ENDC,v))
-            print(word, correct)
             learning.saveword(word, correct, kieli)
 
 if __name__=='__main__': 
