@@ -68,7 +68,7 @@ sanat = {
         'välittömästi': 'dringend',
         'portti': 'Ausgang',
         'pyytää': 'bitten',
-        'lukea': 'stehen',
+        'lukea': 'stehen auf',
         'vaihtaa': 'wechseln',
         'itse': 'selber',
         'olla valppaana': 'auf/passen',
@@ -89,5 +89,5 @@ sanat = {
         'odottaa': 'warten',
         'myöhästynyt': 'verspätet',
         'näin pitkään': 'so lange',
-        'pünktlich': 'täsmällinen',
+        'täsmällinen': 'pünktlich',
 }

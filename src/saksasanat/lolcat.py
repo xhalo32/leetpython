@@ -46,6 +46,10 @@ class Cat:
         self.phase=phase
 
     def print(self, s, nl=True):
+        for sent in s.split('\n'):
+            self._print(sent, nl)
+
+    def _print(self, s, nl=True):
         f = ""
         special = False
         spc = ''
