@@ -19,7 +19,7 @@ sanat = {
         'ylioppilastutkinto': 'die Matura',
         'tuskin': 'kaum',
         'ankara': 'streng',
-        'tehdä asia häñelle helpommaksi': 'ihn die Sache leichter machen',
+        'tehdä asia hänelle helpommaksi': 'ihn die Sache leichter machen',
         'nousistko sängystä': 'würdest du aufstehen',
         '-isi- (ehtomuoto)': 'würde',
         'opeskella': 'lernen',
