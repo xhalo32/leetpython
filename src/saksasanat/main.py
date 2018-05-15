@@ -1,14 +1,15 @@
 #!/usr/bin/bash
 
-import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4
+import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4, kurssi4kpl5
 shuff = kurssi4kpl2.shuff
 
 sanat = {**kurssi4kpl2.sanat,
         **kurssi4kpl3.sanat,
         **kurssi4kpl4.sanat}
 
+sanat = kurssi4kpl5.sanat
+
 import lolcat, learning, command
-learning.fillempty(sanat)
 
 class bcolors:
     HEADER = '\033[95m'
@@ -40,6 +41,7 @@ def main():
         t = {"k": 1, "e": 0}[input()]
         lcat.print(learning.stats(sanat))
 
+        learning.fillempty(sanat)
         lista = learning.shuff(sanat,n,t)
         llen = len(lista)
         last = None
