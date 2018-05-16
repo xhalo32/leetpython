@@ -27,6 +27,7 @@ def ins(string, before, after):
 
 lcat = lolcat.Cat(saturation=0.7)
 com = command.Command()#printer=lcat.print)
+learning.fillempty(sanat)
 
 def main():
     while 1:
@@ -41,7 +42,6 @@ def main():
         t = {"k": 1, "e": 0}[input()]
         lcat.print(learning.stats(sanat))
 
-        learning.fillempty(sanat)
         lista = learning.shuff(sanat,n,t)
         llen = len(lista)
         last = None

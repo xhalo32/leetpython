@@ -60,8 +60,9 @@ def get_per(word):
 def _get_per(samplelist):
     '''
     Takes in a list of samples from a word of the dictionary
-    Return the per cent of how many samples are correct
+    Return the per cent of how many samples are correct (from the last 4 samples)
     '''
+    samplelist = samplelist[-4:]
     if len(samplelist) == 0: return 0.0
     return sum([int(d['correct']) for d in samplelist]) / len(samplelist)
 
