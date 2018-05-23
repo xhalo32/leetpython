@@ -1,13 +1,17 @@
 #!/usr/bin/bash
 
-import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4, kurssi4kpl5
+import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4, kurssi4kpl5, kurssi4rinnastus
 shuff = kurssi4kpl2.shuff
 
 sanat = {**kurssi4kpl2.sanat,
         **kurssi4kpl3.sanat,
         **kurssi4kpl4.sanat}
 
-sanat = kurssi4kpl5.sanat
+
+sanat = kurssi4kpl3.sanat
+sanat = kurssi4kpl4.sanat
+#sanat = kurssi4kpl5.sanat
+#sanat = kurssi4rinnastus.sanat
 
 import lolcat, learning, command
 

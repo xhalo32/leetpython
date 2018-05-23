@@ -73,6 +73,17 @@ mins = [t[125], t[191]]
 for m in mins:
     plt.axvline(x=m,c='gray',label=r'${}s$'.format(m))
 axup.fill_between(t, -1, 2, where=(mins[0]<=t)^(mins[1]<t), facecolor='gray', alpha=0.2)
+axup.annotate('',
+    xy=(mins[0],0),
+    xytext=(mins[1],0),
+    arrowprops=dict(
+        arrowstyle='<->',
+        lw=2,
+        ec='gray',
+    )
+)
+plt.text((mins[0]+mins[1])/2,0,r'$%.2fs$'%(mins[1]-mins[0]),horizontalalignment='center',verticalalignment='bottom',fontsize=10,color='gray')
+
 plt.scatter(t, p, 3, 'r', label=r'$f(t)$')
 plt.scatter(t, pp, 3, 'm', label=r'$g(t)={}m-f(t)$'.format(p.max()))
 peak = 160
@@ -86,10 +97,10 @@ axup.annotate(r'${}m$'.format(pp[peak]),
         ec='m',
     )
 )
-axup.get_xaxis().set_major_formatter(
-    matplotlib.ticker.FuncFormatter(lambda x, p: r'$%ds$'%(p)))
-axup.get_yaxis().set_major_formatter(
-    matplotlib.ticker.FuncFormatter(lambda x, p: r'$%dm$'%(p)))
+# axup.get_xaxis().set_major_formatter(
+#     matplotlib.ticker.FuncFormatter(lambda x, p: r'$%ds$'%(p)))
+# axup.get_yaxis().set_major_formatter(
+#     matplotlib.ticker.FuncFormatter(lambda x, p: r'$%dm$'%(p)))
 plt.xlabel(r'$time\ (s)$')
 plt.ylabel(r'$height\ (m)$')
 plt.grid(True)
@@ -104,12 +115,12 @@ plt.plot(t[127:187], regline, 'b', label=
         r'$h=%.2fms^{-1}+(%.2fms^{-2})t$'%(intercept,slope))
 plt.text(t[170], v[170], r'$%.2fms^{-2}$'%(slope),horizontalalignment='right',
     verticalalignment='top',fontsize=10,color='darkblue')
-axdn.get_xaxis().set_major_formatter(
-    matplotlib.ticker.FuncFormatter(lambda x, p: r'$%ds$'%(p)))
-axdn.get_yaxis().set_major_formatter(
-    matplotlib.ticker.FuncFormatter(lambda x, p: r'$%dms^{-1}$'%(p)))
+# axdn.get_xaxis().set_major_formatter(
+#     matplotlib.ticker.FuncFormatter(lambda x, p: r'$%ds$'%(p)))
+# axdn.get_yaxis().set_major_formatter(
+#     matplotlib.ticker.FuncFormatter(lambda x, p: r'$%dms^{-1}$'%(p)))
 plt.xlabel(r'$time\ (s)$')
-plt.ylabel(r'$speed\ (m)$')
+plt.ylabel(r'$speed\ (ms^{-1})$')
 plt.grid(True)
 plt.axis([-0.1,5.3,-4,4])
 plt.legend()

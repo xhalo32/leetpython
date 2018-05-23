@@ -2,10 +2,12 @@
 
 from functools import reduce
 from math import gcd
+from numpy import sign
 
-def factors(n):    
+def factors(n):
     return set(reduce(list.__add__, 
                 ([i, n//i] for i in range(1, int(pow(n, 0.5) + 1)) if n % i == 0)))
+
 def roots(a,b,c):
     s,t = quadratic(a,b,c)
     #print(s,t)
