@@ -5,11 +5,13 @@ shuff = kurssi4kpl2.shuff
 
 sanat = {**kurssi4kpl2.sanat,
         **kurssi4kpl3.sanat,
-        **kurssi4kpl4.sanat}
+        **kurssi4kpl4.sanat,
+        **kurssi4kpl5.sanat
+        }
 
 
-sanat = kurssi4kpl3.sanat
-sanat = kurssi4kpl4.sanat
+#sanat = kurssi4kpl3.sanat
+#sanat = kurssi4kpl4.sanat
 #sanat = kurssi4kpl5.sanat
 #sanat = kurssi4rinnastus.sanat
 
