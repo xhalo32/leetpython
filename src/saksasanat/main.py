@@ -1,21 +1,14 @@
-#!/usr/bin/bash
-
+#!/usr/bin/python3
 import kurssi4kpl2, kurssi4kpl3, kurssi4kpl4, kurssi4kpl5, kurssi4rinnastus
+import lolcat, learning, command
+import csvreader
+
 shuff = kurssi4kpl2.shuff
-
-sanat = {**kurssi4kpl2.sanat,
-        **kurssi4kpl3.sanat,
-        **kurssi4kpl4.sanat,
-        **kurssi4kpl5.sanat
-        }
-
 
 #sanat = kurssi4kpl3.sanat
 #sanat = kurssi4kpl4.sanat
 #sanat = kurssi4kpl5.sanat
 #sanat = kurssi4rinnastus.sanat
-
-import lolcat, learning, command
 
 class bcolors:
     HEADER = '\033[95m'
@@ -33,8 +26,10 @@ def ins(string, before, after):
 
 lcat = lolcat.Cat(saturation=0.7)
 com = command.Command()#printer=lcat.print)
-learning.fillempty(sanat)
+wordList = csvreader.readFile('./magazin501.csv')
+sanat = csvreader.invertDict(csvreader.convertSimpleDict(wordList))
 
+# learning.fillempty(sanat)
 def main():
     while 1:
         lcat.print('Millä kielellä haluat vastata? ')
@@ -75,8 +70,10 @@ def main():
             if correct:
                 lcat.print('{}OKEIN{}'.format(bcolors.INVERTED,bcolors.ENDC))
             else:
-                lcat.print('{}VÄÄRIN{} oikea on {}{}{}'.format(bcolors.INVERTED,bcolors.ENDC,bcolors.UNDERLINE,v,bcolors.ENDC))
-            learning.saveword(word, correct, kieli)
+                lcat.print('{}VÄÄRIN{} oikea on {}{}{}'.format(
+                    bcolors.INVERTED,bcolors.ENDC,bcolors.UNDERLINE,
+                    v,bcolors.ENDC))
+            # learning.saveword(word, correct, kieli)
             last = word
 
 if __name__=='__main__': 
