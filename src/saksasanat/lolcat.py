@@ -4,7 +4,7 @@ from time import sleep
 import sys
 
 def rgb2ansi(r,g,b):
-    return 16+36*round(-0.5+6.*r/256.)+6*round(-0.5+6.*g/256.)+round(-0.5+6.*b/256.)
+    return 16+36*(r//51)+6*(g//51)+(b//51)
 
 def hsv2rgb(h, s, v):
     h = float(h)
